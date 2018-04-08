@@ -45,7 +45,8 @@ And its easy to use in `layout.xml`
         
 and that's how it looks after implementation
 
-![](https://github.com/AnkitDroidGit/TrapezoidView-Android/blob/master/screen/screenshot.png  width="400" height="720")
+<img src="https://github.com/AnkitDroidGit/TrapezoidView-Android/blob/master/screen/screenshot.png"  width="400" height="720">
+
 
 
 
