@@ -1,9 +1,46 @@
 # TrapezoidView-Android
 A library that let you design trapezoidal views in your android app.
 
-Just add this to your project's app level gradle file
+Just add this to your project's app level `build.gradle` file
 
         compile 'com.android.graven.trapezoid:trapezoid:1.0.0'
+        
+And its easy to use in `layout.xml`
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        
+            <com.android.graven.trapezoid.TrapezoidImageView
+                android:id="@+id/topImage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/kotlin"
+                android:scaleType="centerCrop"
+                app:incline="25dp"
+                app:position="top" />
+        
+            <com.android.graven.trapezoid.TrapezoidImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/java"
+                android:scaleType="centerCrop"
+                app:incline="25dp"
+                app:position="middle" />
+        
+            <com.android.graven.trapezoid.TrapezoidImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/swift"
+                android:scaleType="centerCrop"
+                app:incline="25dp"
+                app:position="bottom" />
+        
+        </LinearLayout>
+
         
         
 and that's how it looks after implementation
