@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TrapezoidImageView">
+        <attr name="position">
+            <enum name="top" value="0"></enum>
+            <enum name="middle" value="1"></enum>
+            <enum name="bottom" value="2"></enum>
+        </attr>
+        <attr name="incline" format="reference|dimension"></attr>
+    </declare-styleable>
+</resources>
