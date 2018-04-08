@@ -1,5 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+
+
+group = 'com.android.graven.trapezoid'
+version = '1.0.0'
+
 
 android {
     compileSdkVersion 27
@@ -34,4 +42,42 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+generateJavadocsJar.dependsOn generateJavadocs
+
+artifacts {
+    archives generateSourcesJar
+}
+def siteUrl = 'https://github.com/AnkitDroidGit/TrapezoidView-Android'
+def gitUrl = 'https://github.com/AnkitDroidGit/TrapezoidView-Android'
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.api")
+    configurations = ['archives']
+    pkg {
+        repo = "TrapezoidView"
+        name = "TrapezoidView"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
 }
