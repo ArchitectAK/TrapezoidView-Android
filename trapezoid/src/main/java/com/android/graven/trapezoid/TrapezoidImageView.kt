@@ -1,20 +1,24 @@
 package com.android.graven.trapezoid
 
+
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.support.annotation.AttrRes
 import android.util.AttributeSet
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.android.graven.trapezoid.R.attr.incline
 
 
 /**
  * @author Ankit Kumar (ankitdroiddeveloper@gmail.com) on 08/04/2018 (MM/DD/YYYY)
  */
-class TrapezoidImageView : ImageView {
-
-    private var mPaint: Paint? = null
+public class TrapezoidImageView : ImageView {
+    //constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int)
+    //(context, attrs, defStyleAttr)
+    private var mPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var mDrawable: Drawable? = null
     private var mWidth: Int = 0
     private var mHeight: Int = 0
@@ -29,17 +33,22 @@ class TrapezoidImageView : ImageView {
     private val TYPE_MIDDLE = 1
     private val TYPE_BOTTOM = 2
 
+    constructor(context: Context) : super(context) {
+        init(null, 0)
+    }
 
-    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(attrs, 0)
+    }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init(attrs, defStyleAttr)
+    }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        mPaint?.style = Paint.Style.FILL
 
+    private fun init(attrs: AttributeSet?,  @AttrRes defStyleAttr: Int) {
+        mPaint.style = Paint.Style.FILL
         mDrawable = drawable
-
 
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.TrapezoidImageView, defStyleAttr, 0)
         mPosition = array.getInt(R.styleable.TrapezoidImageView_position, 0)
@@ -55,16 +64,20 @@ class TrapezoidImageView : ImageView {
 
     override fun onDraw(canvas: Canvas?) {
         if (mDrawable == null) return
-        initBitmapShader()
-        when (mPosition) {
-            TYPE_TOP -> canvas?.let { canvasTop(it) }
-            TYPE_MIDDLE -> {
-                canvas?.let { canvasMiddle(it) }
-                setMargin()
-            }
-            TYPE_BOTTOM -> {
-                canvas?.let { canvasBottom(it) }
-                setMargin()
+        else {
+            initBitmapShader()
+            when (mPosition) {
+                TYPE_TOP -> canvasTop(canvas!!)
+                TYPE_MIDDLE -> {
+                    canvasMiddle(canvas!!)
+//                canvas?.let { canvasMiddle(it) }
+                    setMargin()
+                }
+                TYPE_BOTTOM -> {
+                    canvasBottom(canvas!!)
+//                canvas?.let { canvasBottom(it) }
+                    setMargin()
+                }
             }
         }
     }
@@ -144,7 +157,7 @@ class TrapezoidImageView : ImageView {
     }
 
 
-    public fun setDrawable(drawable: Drawable) {
+    fun setDrawable(drawable: Drawable) {
         mDrawable = drawable
     }
 
