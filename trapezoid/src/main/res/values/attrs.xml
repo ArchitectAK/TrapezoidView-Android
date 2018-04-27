@@ -2,10 +2,24 @@
 <resources>
     <declare-styleable name="TrapezoidImageView">
         <attr name="position">
-            <enum name="top" value="0"></enum>
-            <enum name="middle" value="1"></enum>
-            <enum name="bottom" value="2"></enum>
+            <enum name="top" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="bottom" value="2" />
         </attr>
-        <attr name="incline" format="reference|dimension"></attr>
+        <attr name="incline" format="reference|dimension" />
+    </declare-styleable>
+    <declare-styleable name="TrapezoidLayout">
+        <attr name="layout_angle" format="float" />
+        <attr name="layout_margins" format="boolean" />
+        <attr name="layout_position" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="4" />
+            <enum name="top" value="8" />
+        </attr>
+        <attr name="layout_direction" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

@@ -6,16 +6,15 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.support.annotation.AttrRes
+import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
-import android.widget.ImageView
 import android.widget.LinearLayout
-import com.android.graven.trapezoid.R.attr.incline
 
 
 /**
  * @author Ankit Kumar (ankitdroiddeveloper@gmail.com) on 08/04/2018 (MM/DD/YYYY)
  */
-public class TrapezoidImageView : ImageView {
+public class TrapezoidImageView : AppCompatImageView {
     //constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int)
     //(context, attrs, defStyleAttr)
     private var mPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -46,7 +45,7 @@ public class TrapezoidImageView : ImageView {
     }
 
 
-    private fun init(attrs: AttributeSet?,  @AttrRes defStyleAttr: Int) {
+    private fun init(attrs: AttributeSet?, @AttrRes defStyleAttr: Int) {
         mPaint.style = Paint.Style.FILL
         mDrawable = drawable
 
