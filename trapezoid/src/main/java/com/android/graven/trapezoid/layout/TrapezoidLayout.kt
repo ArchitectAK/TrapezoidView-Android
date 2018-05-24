@@ -19,13 +19,13 @@ class TrapezoidLayout : FrameLayout {
 
     private val EPSILON = 0.5f
 
-    var settings: TrapezoidLayoutUtil? = null
+    private var settings: TrapezoidLayoutUtil? = null
 
 
-    var clipPath: Path? = null
+    private var clipPath: Path? = null
     var outlinePath: Path? = null
 
-    var paint: Paint? = null
+    private var paint: Paint? = null
 
     private var defaultMargin_forPosition: Int = 0
 
