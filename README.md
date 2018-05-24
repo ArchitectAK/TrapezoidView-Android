@@ -1,6 +1,12 @@
 # TrapezoidView-Android
 A library that let you design trapezoidal views in your android app.
 
+
+that's how it looks after implementation
+
+<img src="https://github.com/AnkitDroidGit/TrapezoidView-Android/blob/master/screen/3.png"  width="400" height="700">
+
+
 Just add this to your project's app level `build.gradle` file
 
         compile 'com.android.graven.trapezoid:trapezoid:1.0.0'
@@ -42,11 +48,6 @@ And its easy to use in `layout.xml`
         </LinearLayout>
 
         
-        
-and that's how it looks after implementation
-
-<img src="https://github.com/AnkitDroidGit/TrapezoidView-Android/blob/master/screen/3.png"  width="400" height="720">
-
 
 
 
