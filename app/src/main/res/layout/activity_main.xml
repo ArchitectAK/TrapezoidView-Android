@@ -9,26 +9,10 @@
         android:id="@+id/topImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/kotlin"
+        android:src="@drawable/diagonallayout_background"
         android:scaleType="centerCrop"
         app:incline="25dp"
         app:position="top" />
-
-    <com.android.graven.trapezoid.TrapezoidImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/java"
-        android:scaleType="centerCrop"
-        app:incline="25dp"
-        app:position="middle" />
-
-    <com.android.graven.trapezoid.TrapezoidImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/swift"
-        android:scaleType="centerCrop"
-        app:incline="25dp"
-        app:position="bottom" />
 
 
 </LinearLayout>
